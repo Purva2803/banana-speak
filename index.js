@@ -17,14 +17,12 @@ function EventHandler(){
 
        var inputtext = input.value;
    
-       fetch (getTranslation(inputtext))
-       
-       .then(response=>response.json())
-       .then(reply=> {
+       fetch (getTranslation(inputtext)).then(response=>response.json()).then(reply=> {
               var translatedtext = reply.contents.translated;
               output.innerText = translatedtext;
        }
-       );
+       ).catch(errorHandler);
+
        
 }
 
